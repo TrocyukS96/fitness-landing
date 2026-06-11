@@ -1,0 +1,240 @@
+// layer components = components.module.scss
+// layer global = current file
+// layer main = other scss modules
+
+@font-face {
+  font-family: 'generalSans';
+  src: url('/fonts/GeneralSans-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'generalSans';
+  src: url('/fonts/GeneralSans-Semibold.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'generalSans';
+  src: url('/fonts/GeneralSans-Bold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer global, components, main;
+
+@layer global {
+  :root {
+    --white: rgba(248, 247, 241, 1);
+    --white-opacity: rgba(248, 247, 241, 0.7);
+    --dark_yellow: rgba(212, 172, 16, 1);
+    --dark_yellow-hover: rgb(230, 187, 15);
+    --light_green: rgba(85, 100, 43, 1);
+    --color-text: rgba(55, 65, 28, 1);
+    --footer-bgColor: rgba(69, 82, 32, 1);
+    --footer-textColor: rgba(224, 242, 174, 1);
+    --bgColor: rgba(253, 247, 226, 1);
+    --color-error:#e74c3c;
+    --color-success:#2ecc71;
+    --primary:#3b2f25;
+
+    --modal-maxWidth: 800px;
+    --wrapper-padding: 32px;
+    --wrapper-padding-mob: 16px;
+    --wrapper-maxWidth: calc(1296px + var(--wrapper-padding) * 2);
+    --ths: 0.2s ease; /* transition hover speed */
+
+    --native-scrollbar-width: 7px;
+    --native-scrollbar-borderRadius: 5px;
+    --native-scrollbar-color: var(--footer-bgColor);
+    --native-scrollbar-bgColor: var(--bgColor);
+
+    --font-inter: "Inter", sans-serif;
+    --font-dmSans: "DM Sans", sans-serif;
+    --font-generalSans: "General Sans", sans-serif;
+    
+  }
+
+  ::-webkit-scrollbar {
+    width: var(--native-scrollbar-width);
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--native-scrollbar-color);
+    border-radius: var(--native-scrollbar-borderRadius);
+  }
+  ::-webkit-scrollbar-track {
+    background-color: var(--native-scrollbar-bgColor);
+    border-radius: var(--native-scrollbar-borderRadius);
+  }
+  scrollbar {
+    width: var(--native-scrollbar-width);
+  }
+  scrollbar-thumb {
+    background-color: var(--native-scrollbar-color);
+    border-radius: var(--native-scrollbar-borderRadius);
+  }
+  scrollbar-track {
+    background-color: var(--native-scrollbar-bgColor);
+    border-radius: var(--native-scrollbar-borderRadius);
+  }
+
+  *,
+  *::after,
+  *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-rendering: optimizeLegibility;
+  }
+  button,
+  a,
+  input,
+  textarea,
+  select,
+  label,
+  summary,
+  [role="button"],
+  [role="link"],
+  [role="checkbox"],
+  [role="switch"],
+  div {
+    -webkit-tap-highlight-color: transparent;
+  }
+  button,
+  input,
+  textarea,
+  select,
+  optgroup,
+  option,
+  fieldset,
+  legend,
+  output {
+    font-family: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+  }
+  button,
+  input {
+    color: inherit;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: var(--vh);
+    min-width: 320px;
+    overflow-x: hidden;
+    font-family: var(--font-dmSans), system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+      "Helvetica Neue", sans-serif;
+    // background-color: var(--bgColor);
+    color: var(--color-text);
+    scroll-behavior: smooth;
+    animation: FadeIn .7s ease forwards;
+  }
+  a,
+  ul,
+  li {
+    text-decoration: none;
+    list-style: none;
+    list-style-type: none;
+    color: inherit;
+  }
+  a {
+    cursor: pointer;
+  }
+  i /* for icons */ {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  i > svg {
+    pointer-events: none;
+    user-select: none;
+  }
+  img[alt] {
+    text-indent: -99999px;
+  }
+  img {
+    -webkit-user-drag: none;
+    object-fit: contain;
+    user-select: none;
+  }
+  // body.blockScroll {
+  //   position: fixed;
+  //   inset: 0;
+  //   overflow-y: scroll !important;
+  // }
+  #no_js > div {
+    position: relative;
+    z-index: 9999;
+    padding: 18px;
+    text-align: center;
+    font-size: 20px;
+    background-color: rgb(182, 188, 240);
+    color: #111;
+  }
+  #no_js > div > a {
+    border-bottom: 1px solid #ffffffd1;
+    cursor: pointer;
+  }
+  ::selection {
+    background-color: rgb(92, 110, 41);
+    color: #fff;
+  }
+  [data-testid="hidden"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    pointer-events: none;
+    border: none;
+    outline: none;
+    left: -2px;
+    top: -2px;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  @keyframes FadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+/* Global styles for additional protection */
+body.modal-open video {
+  pointer-events: none;
+}
+
+/* Prevent URL copying from iframe */
+iframe {
+  pointer-events: auto !important;
+}

@@ -1,0 +1,15 @@
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  gap: 24px;
+  cursor: pointer;
+
+  & svg {
+    transform: rotate(180deg);
+  }
+
+  @media (max-width: 991px) {
+    display: none;
+  }
+}

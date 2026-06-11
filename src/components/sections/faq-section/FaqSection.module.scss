@@ -1,0 +1,29 @@
+@use "../../../styles/use/mixins" as *;
+@use "../../../styles/use/media" as *;
+
+.section {
+  padding: 30px 0 50px;
+
+  @media (max-width: 991px) {
+    padding: 30px 0 20px;
+  }
+
+  .container {
+    max-width: 800px;
+    padding: 0 30px;
+    margin: 0 auto;
+
+    @media (max-width: 991px) {
+      padding: 0 20px;
+    }
+
+    .title {
+      margin-bottom: 45px;
+      text-align: center;
+    }
+  }
+}
+
+.hugItem{
+  color:var(--dark_yellow);
+}

@@ -1,0 +1,180 @@
+.footer {
+  background-color: #3b2f25;
+  padding-top: 115px;
+  padding-bottom: 50px;
+  position: relative;
+  overflow: hidden;
+
+  @media (max-width: 991px) {
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+  @media (max-width: 767px) {
+    padding-bottom: 30px;
+  }
+
+  @media (max-width: 479px) {
+    padding-top: 60px;
+  }
+
+  .container {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 30px;
+
+    @media (max-width: 991px) {
+      padding: 0 20px;
+    }
+
+    .wrapper {
+      display: flex;
+      gap: 80px;
+      justify-content: center;
+
+      @media (max-width: 1280px) {
+        gap: 40px;
+      }
+
+      @media (max-width: 1080px) {
+        display: grid;
+        gap: 30px;
+        justify-content: flex-start;
+        grid-template-areas:
+          "a b c"
+          "d d d";
+      }
+      @media (max-width: 810px) {
+        display: grid;
+        gap: 30px;
+        column-gap: 50px;
+        grid-template-areas:
+          "a b"
+          "c d";
+      }
+      @media (max-width: 670px) {
+        display: grid;
+        gap: 30px;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "a"
+          "b"
+          "c"
+          "d";
+      }
+
+      .logoCol {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        grid-area: a;
+
+        .footerInfoItem {
+          font-size: 18px;
+          font-weight: 400;
+          color: #fff;
+        }
+
+        .footerContactLink {
+          display: flex;
+          gap: 20px;
+
+          .footerLinkIcon {
+            color: var(--dark_yellow);
+          }
+
+          .footerContactLinkItem {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            .footerLinkText {
+              font-size: 18px;
+              color: #d7dddd;
+            }
+
+            .footerLinkItem {
+              font-size: 18px;
+              font-weight: 700;
+              color: #fff;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+
+      .pagesCol {
+        color: #fff;
+        font-size: 18px;
+        grid-area: b;
+
+        .footerTitle {
+          margin-bottom: 25px;
+
+          font-weight: 600;
+          font-size: 22px;
+          font-family: generalSans, sans-serif;
+        }
+
+        .footerLinks {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+
+          & li {
+            cursor: pointer;
+            color: #d7dddd;
+          }
+        }
+
+        .bankLogos {
+          margin-top: 40px;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+      }
+
+      .legalInfoCol {
+        grid-area: c;
+        max-width: 250px;
+      }
+
+      .infoCol {
+        color: #fff;
+        grid-area: d;
+
+        @media (max-width: 1080px) {
+          margin-top: 20px;
+        }
+        @media (max-width: 810px) {
+          margin-top: 0px;
+        }
+
+        .infoTitle {
+          margin-bottom: 25px;
+
+          font-weight: 600;
+          font-size: 22px;
+          font-family: generalSans, sans-serif;
+        }
+
+        .infoItems {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+
+          .footerInfoItem {
+            font-size: 18px;
+            color: #d7dddd;
+          }
+        }
+      }
+    }
+  }
+}
+
+.footerLinkBtn {
+  background-color: transparent;
+  font-size: 18px;
+  color: #d7dddd;
+}

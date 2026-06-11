@@ -1,0 +1,103 @@
+@use "../use/mixins" as *;
+@use "../use/media" as *;
+
+@layer main {
+  .Container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    margin: 30px 0;
+
+    @include max-991 {
+      margin: 15px 0;
+    }
+  }
+
+  .Links {
+    position: relative;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+
+    @include min-991 {
+      display: flex;
+    }
+  }
+
+  .Links_Item {
+    position: relative;
+    font-weight: 500;
+  }
+
+  .Links_Item_Content {
+    background-color: transparent;
+    cursor: pointer;
+    color: var(--color-text);
+    font-size: 20px;
+    font-weight: 500;
+    font-family: var(--font-inter);
+
+    &:active {
+      margin-bottom: -1px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0px;
+      display: block;
+      transition: all 0.4s ease;
+      width: 0;
+      height: 3px;
+      background-color: var(--dark_yellow);
+    }
+
+    &:hover::after {
+      left: 0;
+      width: 100%;
+    }
+  }
+
+  .User {
+    position: relative;
+    display: none;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+
+    @include min-991 {
+      display: flex;
+    }
+  }
+
+  .mobileBtnWrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+      @include min-991 {
+        display: none;
+      }
+
+    .burgerWrapper {
+      width: 48px;
+      height: 48px;
+
+      border-radius: 50%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--dark_yellow);
+      color:var(--white);
+
+      @include min-991 {
+        display: none;
+      }
+    }
+  }
+}

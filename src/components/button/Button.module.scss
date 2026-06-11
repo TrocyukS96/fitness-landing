@@ -1,0 +1,124 @@
+@use "../../styles/use/mixins" as *;
+@use "../../styles/use/media" as *;
+
+// Базовые стили для всех кнопок
+.PrimaryButton,
+.OutlineButton,
+.SecondaryButton {
+  position: relative;
+  touch-action: manipulation;
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  line-height: 100%;
+  border-radius: 100px;
+  transition: transform var(--ths), background-color var(--ths), 
+              border-color var(--ths), color var(--ths), opacity var(--ths);
+  border: none;
+  cursor: pointer;
+
+  // Стили для disabled состояния
+  &:disabled,
+  &.Disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+}
+
+// Специфичные стили для каждого варианта
+.PrimaryButton {
+  background-color: var(--dark_yellow);
+  color: rgba(255, 254, 248, 1);
+
+  @include respond-md {
+    font-size: 24px;
+    letter-spacing: 0.01rem;
+  }
+
+  @include hover-supported {
+    &:hover:not(:disabled):not(.Disabled) {
+      background-color: var(--dark_yellow-hover);
+    }
+  }
+
+  @include respond-md-max {
+    &:active:not(:disabled):not(.Disabled) {
+      background-color: var(--dark_yellow-hover);
+    }
+  }
+
+  // Специфичные стили disabled для primary
+  &:disabled,
+  &.Disabled {
+    background-color: var(--gray-300);
+    color: var(--gray-500);
+  }
+}
+
+.OutlineButton {
+  color: var(--color-text);
+  border: 1px solid var(--color-text);
+  background-color: transparent;
+  transition: transform var(--ths), background-color var(--ths), 
+              border-color var(--ths), color var(--ths);
+
+  @include hover-supported {
+    &:hover:not(:disabled):not(.Disabled) {
+      background-color: var(--color-text);
+      color: white;
+    }
+  }
+
+  // Специфичные стили disabled для outline
+  &:disabled,
+  &.Disabled {
+    border-color: var(--gray-300);
+    color: var(--gray-400);
+  }
+}
+
+.SecondaryButton {
+  background-color: transparent;
+  color: var(--color-text);
+
+  @include hover-supported {
+    &:hover:not(:disabled):not(.Disabled) {
+      background-color: var(--gray-100);
+    }
+  }
+
+  // Специфичные стили disabled для secondary
+  &:disabled,
+  &.Disabled {
+    color: var(--gray-400);
+  }
+}
+
+// Размеры
+.SmallButton {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.MediumButton {
+  padding: 14px 25px;
+}
+
+.LargeButton {
+  padding: 16px 32px;
+  font-size: 18px;
+
+  @include respond-md {
+    font-size: 20px;
+  }
+}
+
+.Disabled {
+  box-shadow: none;
+  transform: none;
+  background-color: rgba(128, 128, 128, 0.632) !important;
+
+  cursor: initial;
+  opacity: .6;
+}

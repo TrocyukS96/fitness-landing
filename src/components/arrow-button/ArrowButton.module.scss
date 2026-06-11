@@ -1,0 +1,39 @@
+@use "./../../styles/use/mixins" as *;
+@use "./../../styles/use/media" as *;
+
+.wrapper {
+  display: flex;
+  align-items: center;
+
+  @include hover-supported {
+    cursor: pointer;
+  }
+
+  &:hover .arrow {
+    transform: rotate(0deg);
+  }
+
+  @media (max-width: 767px) {
+    &:hover .arrow {
+      transform: rotate(30deg);
+    }
+  }
+
+  .arrowWrapper {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+    color: var(--white);
+    background-color: var(--light_green);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .arrow {
+    transition: all 0.4s ease-in-out;
+    transform: rotate(-45deg);
+  }
+}

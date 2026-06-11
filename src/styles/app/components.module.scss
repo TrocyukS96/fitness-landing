@@ -1,0 +1,127 @@
+@use "../use/mixins" as *;
+@use "../use/media" as *;
+
+@layer components {
+  .FlexRowStart {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .FlexColumnStart {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .Wrapper {
+    position: relative;
+    width: 100%;
+    max-width: var(--wrapper-maxWidth);
+    margin: 0 auto;
+    padding: 0 30px; 
+
+    @include max-991 {
+      padding: 0 14px;
+    }
+  }
+
+  .container {
+    display: flex;
+  }
+
+  .SocialLinks {
+    --spacing: var(--wrapper-padding);
+    position: relative;
+    width: 100%;
+    background-color: var(--light_green);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing);
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing);
+
+    @include respond-md {
+      --spacing: 64px;
+    }
+  }
+
+  .SocialLinks_Title {
+    color: var(--white) !important;
+    text-align: center;
+    line-height: 28px;
+
+    @include respond-md {
+      line-height: unset;
+    }
+  }
+
+  .SocialLinks_Content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 28px;
+
+    @include respond-md {
+      gap: 100px;
+    }
+  }
+
+  .SocialLinks_Item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    flex-shrink: 0;
+    height: 64px;
+
+    > img {
+      width: 100%;
+      height: 100%;
+    }
+
+    @include respond-md-max {
+      width: auto;
+      height: 40px;
+    }
+  }
+
+  .SectionColumn {
+    display: flex;
+    flex-direction: column;
+    gap: var(--items-gap, 24px);
+
+    @include respond-md {
+      gap: var(--items-gap, 32px);
+    }
+  }
+
+  .Section_Title {
+    font-family: var(--font-rubik);
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 100%;
+    color: var(--color-text);
+
+    @include respond-md {
+      font-size: 56px;
+      font-weight: 700;
+    }
+  }
+
+  .Section_Subtitle {
+    font-family: var(--font-inter);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    color: var(--color-text);
+
+    @include respond-md {
+      font-size: 32px;
+      line-height: unset;
+    }
+  }
+}

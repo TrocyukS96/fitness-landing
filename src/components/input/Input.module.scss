@@ -1,0 +1,16 @@
+@use "../../styles/use/mixins" as *;
+@use "../../styles/use/media" as *;
+
+.input {
+  height: 64px;
+  background-color: transparent;
+  box-shadow: none;
+  outline: 0;
+  border: 1px solid var(--color-text);
+  border-radius: 12px;
+  padding: 0 12px;
+  font-size: 24px;
+  color:var(--color-text);
+  width: 100%;
+  transition: border-color 0.2s;
+}

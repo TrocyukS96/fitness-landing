@@ -1,0 +1,30 @@
+@use "../../styles/use/mixins" as *;
+@use "../../styles/use/media" as *;
+
+.title {
+  line-height: 100%;
+  font-family: generalSans, sans-serif;
+  color: var(--color-text);
+}
+
+.section {
+  font-weight: 600;
+  font-size: 48px;
+
+  @media (max-width:991px) {
+    font-size: 46px;
+  }
+  @media (max-width:479px) {
+    font-size: 36px;
+  }
+}
+
+.modal {
+  font-weight: 500;
+  font-size: 40px;
+
+  @include respond-md {
+    font-size: 48px;
+    font-weight: 700;
+  }
+}

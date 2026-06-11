@@ -1,0 +1,62 @@
+@use "../../../styles/use/mixins" as *;
+@use "../../../styles/use/media" as *;
+
+.content {
+  display: flex;
+  gap: 48px;
+
+  @media (max-width: 1140px) {
+    flex-direction: column-reverse;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .title {
+    font-size: 48px;
+    color: var(--color-text);
+    font-weight: 700;
+    margin-bottom: 48px;
+
+    @include respond-md-max {
+      font-size: 24px;
+      margin-bottom: 24px;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .formGroup {
+      margin-bottom: 20px;
+      position: relative;
+
+      .errorInput {
+        border-color: #ff4444 !important;
+      }
+
+      .error {
+        color: #ff4444;
+        font-size: 14px;
+        margin-top: 5px;
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
+      }
+    }
+
+    .lastFormGorup {
+      margin-bottom: 15px;
+    }
+
+    button {
+      max-width: 424px;
+
+      @media (max-width: 1140px) {
+        align-self: center;
+      }
+    }
+  }
+}

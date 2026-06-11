@@ -1,0 +1,14 @@
+@use "../../styles/use/mixins" as *;
+@use "../../styles/use/media" as *;
+
+.Logo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.Logo_Img {
+  width: 201px;
+    height: auto;
+}

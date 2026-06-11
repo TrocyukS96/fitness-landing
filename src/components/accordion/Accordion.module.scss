@@ -1,0 +1,62 @@
+.accordion {
+  width: 100%;
+  font-size: 16px;
+  
+  &.bordered {
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+  }
+}
+
+.header {
+  position: relative;
+  padding: 12px 0;
+  color: rgba(0, 0, 0, 0.85);
+  line-height: 1.5715;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  
+//   &:hover {
+//     background-color: #fafafa;
+//   }
+  
+//   &.active {
+//     background-color: #fafafa;
+//   }
+}
+
+.headerContent {
+  flex: 1;
+}
+
+.arrow {
+  display: inline-flex;
+//   margin-left: 16px;
+}
+
+.arrowIcon {
+  transition: all 0.3s ease-in-out;
+  
+  &.rotated {
+    transform: rotate(180deg);
+  }
+}
+
+.content {
+  overflow: hidden;
+  color: rgba(0, 0, 0, 0.85);
+  border-top: 1px solid transparent;
+  transition: all 0.3s ease-out;
+  height: 0;
+  opacity: 0;
+  
+  &.show {
+    height: auto;
+    opacity: 1;
+    // padding: 16px;
+  }
+}

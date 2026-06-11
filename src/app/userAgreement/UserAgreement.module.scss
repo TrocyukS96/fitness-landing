@@ -1,0 +1,21 @@
+@use "../../styles/use/mixins" as *;
+@use "../../styles/use/media" as *;
+
+.container {
+  // height: 100svh;
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+
+  main{
+    width: 100%;
+    max-width: var(--wrapper-maxWidth);
+    margin: 0 auto;
+    padding: 0 16px;
+
+    .content{
+        margin-bottom: 20px;
+    }
+  }
+}
+

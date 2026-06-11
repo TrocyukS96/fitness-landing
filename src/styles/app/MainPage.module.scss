@@ -1,0 +1,533 @@
+@use "../use/mixins" as *;
+@use "../use/media" as *;
+
+@layer main {
+  .Container {
+    --items-gap: 24px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    @include respond-md {
+      --items-gap: 32px;
+    }
+  }
+
+  .Section {
+    margin-bottom: 48px;
+    overflow: hidden;
+
+    @include respond-md {
+      margin-bottom: 100px;
+    }
+  }
+
+  .Section_Image {
+    width: 100%;
+
+    @include respond-md {
+      width: unset;
+    }
+  }
+
+  .Hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 24px;
+
+    @include respond-md {
+      flex-direction: row;
+      gap: 64px;
+    }
+  }
+
+  .HeroMainSide {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+
+    @include respond-md {
+      align-items: flex-start;
+    }
+  }
+
+  .HeroMainSide_Title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 800;
+    font-family: var(--font-montserrat-alternates);
+    color: var(--color-text);
+
+    @include respond-md {
+      text-align: start;
+      font-size: 32px;
+      font-weight: 700;
+      line-height: unset;
+      font-family: var(--font-rubik);
+    }
+  }
+
+  .GreenSection {
+    --padding: var(--wrapper-padding);
+    position: relative;
+    width: 100%;
+    background-color: var(--light_green);
+    padding-bottom: var(--padding);
+    padding-top: var(--padding);
+    margin-top: 56px;
+  }
+
+  .GreenSection_Title {
+    display: block;
+    font-size: 32px;
+    font-weight: 700;
+    font-family: var(--font-montserrat-alternates);
+    color: var(--white);
+    margin-bottom: 24px;
+
+    @include respond-md {
+      font-size: 56px;
+      font-weight: 700;
+      font-family: var(--font-rubik);
+      line-height: unset;
+    }
+  }
+
+  .TagsList {
+    overflow: hidden;
+    max-width: calc(var(--wrapper-maxWidth) + 10vw);
+  }
+
+  .TagsList_Inner {
+    --gap: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    white-space: nowrap;
+
+    @include respond-md {
+      flex-direction: row;
+      --gap: 32px;
+      
+      animation: loopDesktop 15s linear infinite;
+
+      @keyframes loopDesktop {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+    }
+  }
+
+  .TagsList_Fade {
+    position: absolute;
+    pointer-events: none;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      var(--light_green),
+      transparent 30%,
+      transparent 70%,
+      var(--light_green)
+    );
+  }
+
+  .TagsList_Content {
+    position: relative;
+    gap: var(--gap);
+
+    width: fit-content;
+    animation-name: loop;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: var(--direction);
+    animation-duration: var(--duration);
+
+    &_FirstLine {
+      --duration: 11962ms;
+      --direction: normal;
+    }
+    &_SecondLine {
+      --duration: 14445ms;
+      --direction: reverse;
+    }
+    @include respond-md {
+      animation: none;
+    }
+
+    @keyframes loop {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  .TagsList_Content_Item {
+    border: 1px solid var(--white);
+    border-radius: 10px;
+    background-color: transparent;
+    padding: 7px 8px;
+    font-family: var(--font-inter);
+    font-size: 14px;
+    font-weight: 300;
+    text-align: center;
+    line-height: 100%;
+    white-space: nowrap;
+    color: var(--white);
+
+    @include respond-md {
+      padding: 16px;
+      font-size: 24px;
+      font-family: var(--font-rubik);
+    }
+  }
+
+  .AboutMe_SmallSubtitle {
+    font-size: 16px;
+    line-height: 24px;
+
+    @include respond-md {
+      font-size: 24px;
+    }
+  }
+
+  .aboutMe_description{
+    display: flex;
+    flex-direction: column;
+    gap:24px;
+    font-size: 16px;
+
+      @include respond-md {
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+
+  @include respond-md {
+    .AboutMe {
+      min-height: 570px;
+      padding-right: calc(539px + 64px + var(--wrapper-padding));
+    }
+
+    .AboutMe_Image {
+      position: absolute !important;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      margin-right: var(--wrapper-padding);
+    }
+  }
+
+  .AboutMe_Tags {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--items-gap);
+  }
+
+  .AboutMe_Tags_Item {
+    display: block;
+    position: relative;
+    padding: 9px 10px;
+    border-radius: 8px;
+    background-color: var(--light_green);
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 100%;
+    color: var(--white);
+    font-family: var(--font-inter);
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    @include respond-md {
+      padding: 16px;
+      font-size: 24px;
+      border-radius: 10px;
+    }
+  }
+
+  .ForWhom {
+    position: relative;
+    width: 100%;
+    background-color: var(--light_green);
+
+    &_Content {
+      --section-image-height: 398px;
+      display: grid;
+      gap: 64px;
+      padding-bottom: var(--wrapper-padding);
+      padding-top: var(--wrapper-padding);
+
+      grid-template-areas:
+        "ForWhom_Image"
+        "ForWhom_Title"
+        "ForWhom_TagsList";
+
+      align-items: start;
+
+      .ForWhom_Title {
+        grid-area: ForWhom_Title;
+        text-align: center;
+        color: var(--white);
+      }
+
+      .ForWhom_Image {
+        grid-area: ForWhom_Image;
+        justify-self: center;
+      }
+
+      .ForWhom_TagsList {
+        width: 100%;
+        grid-area: ForWhom_TagsList;
+        justify-self: center;
+      }
+
+      @include respond-md {
+        gap: 64px;
+        padding-bottom: 48px;
+        padding-top: 48px;
+
+        grid-template-areas:
+          "ForWhom_Title ForWhom_Title"
+          "ForWhom_Image ForWhom_TagsList";
+
+        grid-template-columns: auto auto;
+        justify-content: center;
+        align-items: start;
+
+        .ForWhom_Title {
+          text-align: start;
+        }
+
+        .ForWhom_Image {
+          max-width: 100%;
+          min-width: 400px;
+          margin: 0;
+        }
+
+        .ForWhom_TagsList {
+          margin: 58px 0;
+          width: unset;
+        }
+      }
+    }
+  }
+
+  .ForWhom_Tags_Item {
+    display: block;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    padding: 8px 16px;
+    border-radius: 10px;
+    background-color: var(--bgColor);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--color-text);
+
+    @include respond-md {
+      font-size: 24px;
+      font-family: var(--font-rubik);
+      padding: 16px 24px;
+    }
+  }
+
+  .ForWhom_Tags_Item_Icon {
+    width: 16px;
+    height: 16px;
+
+    @include respond-md {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  .Tariffs {
+    @include respond-md {
+      gap: 48px;
+    }
+  }
+
+  .Tariffs_Title {
+    padding: 0 var(--wrapper-padding);
+    color: var(--color-text);
+
+    @include respond-md {
+      width: 100%;
+      max-width: var(--wrapper-maxWidth);
+      margin: 0 auto;
+      text-align: start;
+    }
+  }
+  
+  .EmblaViewport {
+    overflow: hidden;
+    padding-left: var(--wrapper-padding);
+    padding-right: var(--wrapper-padding);
+  }
+
+  .EmblaContainer {
+    display: flex;
+  }
+
+  .Tariffs_List {
+    --tariffs-list-spacing: 24px;
+    // position: relative;
+    // overflow: hidden;
+    user-select: none;
+    width: 100%;
+    max-width: 100%;
+
+    display: flex;
+    gap: 24px;
+
+    @include respond-md {
+      --tariffs-list-spacing: 48px;
+      max-width: var(--wrapper-maxWidth);
+      margin: 0 auto;
+    }
+  }
+
+  .Tariffs_List_Item {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--items-gap);
+    overflow: hidden;
+    border-radius: 10px;
+    padding: 32px 48px;
+    background-color: #fff;
+    // border: 1px solid var(--color-text);
+
+    @include respond-md {
+      padding: 30px 60px;
+    }
+  }
+
+  .Tariffs_List_Item_Title {
+    font-family: var(--font-inter);
+    text-align: center;
+    font-size: 20px;
+    color: var(--color-text);
+    font-weight: 600;
+
+    @include respond-md {
+      font-family: var(--font-rubik);
+      font-size: 24px;
+    }
+  }
+
+  .Tariffs_List_Item_Img {
+    width: 192px;
+    height: 248px;
+    overflow: hidden;
+    border-radius: 15px;
+
+    @include respond-md {
+      width: 310px;
+      height: 400px;
+    }
+  }
+
+  .Tariffs_List_Item_Img_Src {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .Tariffs_Pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    white-space: nowrap;
+  }
+
+  .Tariffs_Pagination_Item {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    touch-action: manipulation;
+    background-color: rgba(217, 217, 217, 1);
+    transition: background-color var(--ths);
+
+    @include respond-md {
+      cursor: pointer;
+    }
+
+    &.Active {
+      background-color: var(--light_green);
+    }
+  }
+
+  .MaskImage {
+    position: relative;
+    flex-shrink: 0;
+    overflow: hidden;
+    height: auto;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+
+    width: 100%;
+    min-height: 372px;
+
+    > img {
+      object-fit: cover;
+    }
+  }
+
+  .HeroImage {
+    mask-image: url("/mobile_vector_HeroSection.svg");
+
+    @include respond-md {
+      width: 543px;
+      height: 542px;
+      mask-image: url("/desktop_vector_HeroSection.svg");
+    }
+  }
+
+  .AboutMe_Image {
+    mask-image: url("/mobile_vector_aboutme.svg");
+
+    @include respond-md {
+      width: 541px;
+      height: 473px;
+      mask-image: url("/desktop_vector_aboutme.svg");
+
+      > img {
+        object-position: top;
+      }
+    }
+  }
+
+  .ForWhom_Image {
+    mask-image: url("/mobile_vector_forwhom.svg");
+
+    @include respond-md {
+      width: 660px;
+      height: 727px;
+      mask-image: url("/desktop_vector_forwhom.svg");
+    }
+  }
+
+
+}

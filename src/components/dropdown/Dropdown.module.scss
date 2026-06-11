@@ -1,0 +1,114 @@
+// components/ui/Dropdown/Dropdown.module.scss
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.trigger {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  position: fixed;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  min-width: 160px;
+  padding: 8px;
+  border: 1px solid #e5e7eb;
+  z-index: 9999;
+  animation: dropdownFadeIn 0.2s ease;
+
+  &.top {
+    transform: translateX(-50%) translateY(-100%);
+    margin-top: -8px;
+  }
+
+  &.bottom {
+    transform: translateX(-50%);
+    margin-top: 8px;
+  }
+
+  &.left {
+    transform: translateX(-100%) translateY(-50%);
+    margin-left: -8px;
+  }
+
+  &.right {
+    transform: translateY(-50%);
+    margin-left: 8px;
+  }
+}
+
+// Правильная анимация без вложенных стилей
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+// Отдельная анимация для top позиции
+.overlay.top {
+  animation: dropdownFadeInTop 0.2s ease;
+}
+
+@keyframes dropdownFadeInTop {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-100%);
+  }
+}
+
+// Отдельная анимация для left позиции
+.overlay.left {
+  animation: dropdownFadeInLeft 0.2s ease;
+}
+
+@keyframes dropdownFadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(10px) translateY(-50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-100%) translateY(-50%);
+  }
+}
+
+// Отдельная анимация для right позиции
+.overlay.right {
+  animation: dropdownFadeInRight 0.2s ease;
+}
+
+@keyframes dropdownFadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-10px) translateY(-50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%);
+  }
+}
+
+.simpleOverlay {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  min-width: 160px;
+  padding: 8px;
+  border: 1px solid #e5e7eb;
+  animation: dropdownFadeIn 0.2s ease;
+}

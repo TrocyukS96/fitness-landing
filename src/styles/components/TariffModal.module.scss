@@ -1,0 +1,124 @@
+@use "../use/mixins" as *;
+@use "../use/media" as *;
+
+@layer main {
+  .ContentInner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .Content {
+    --indent: 28px;
+    position: relative;
+    padding: 50px 30px;
+    background-color: var(--bgColor);
+    border-radius: 15px;
+    width: 100%;
+    max-width: var(--modal-maxWidth);
+    height: 100%;
+    max-height: 700px;
+
+    @include respond-md {
+      --indent: 32px;
+    }
+
+    @include respond-md-max {
+      max-width: 100%;
+      height: 100%;
+      // padding: var(--wrapper-padding);
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+  }
+
+  .CloseButton {
+    position: absolute;
+    top: var(--indent);
+    right: var(--indent);
+    background-color: transparent;
+    touch-action: manipulation;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    color: var(--color-text);
+
+    @include hover-supported {
+      transition: opacity var(--ths);
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+
+
+  .ContentInner {
+    position: relative;
+    gap: var(--indent);
+    text-align: center;
+    font-family: var(--font-inter);
+  }
+
+  .Title {
+    font-weight: 600;
+    font-size: 48px;
+    color: var(--color-text);
+
+    @include respond-md-max {
+      font-size: 36px;
+    }
+  }
+
+  .description {
+    height: 60px;
+
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-text);
+
+      @include respond-md-max {
+      height: 100%;
+      min-height: 100px;
+
+    }
+  }
+
+  .PromoText {
+    display: block;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--color-text);
+    font-family: var(--font-montserrat-alternates);
+  }
+
+
+
+  .VideoModal_Content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .CloseButton {
+      top: -45px;
+      right: 10px;
+      color: var(--white);
+
+      @include respond-md {
+        top: 0;
+        right: -45px;
+      }
+    }
+
+    .Video {
+      width: 100%;
+      max-width: var(--modal-maxWidth);
+      border-radius: 20px;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+@mixin respond-md {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin respond-md-max {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+
+@mixin max-991{
+  @media (max-width: 991px) {
+    @content;
+  }
+}
+
+@mixin min-991{
+  @media (min-width: 991px) {
+    @content;
+  }
+}

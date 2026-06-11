@@ -1,0 +1,130 @@
+@use "../../../styles/use/mixins" as *;
+@use "../../../styles/use/media" as *;
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+
+  .content {
+    position: relative;
+
+    &_PlayButton {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      cursor: inherit;
+    }
+
+    .benefitsBlock {
+      h6 {
+        font-size: 18px;
+        font-family: generalSans, sans-serif;
+      }
+
+      .benefitsList {
+        margin-top: 16px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        font-size: 20px;
+      }
+    }
+  }
+
+  .videoBlock {
+    h6 {
+      font-size: 24px;
+    }
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+
+    border-radius: 10px;
+    cursor: pointer;
+
+    & button {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background-color: rgba(217, 217, 217, 1);
+    }
+
+    .btnWrapper {
+      position: relative;
+    }
+
+    .Controls {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      top: 50%;
+      transform: translateY(-50%);
+      left: -100px;
+      right: -100px;
+      padding: 0;
+      pointer-events: none;
+      z-index: 10;
+
+      @include respond-md-max {
+        left: -60px;
+        right: -60px;
+      }
+
+      &_Button {
+        position: relative;
+        pointer-events: all;
+        width: 64px;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        touch-action: manipulation;
+        background-color: var(--dark_yellow);
+        color: var(--white);
+        transition: transform var(--ths), opacity var(--ths);
+
+        opacity: 0;
+        pointer-events: none;
+
+        &.Active {
+          opacity: 1;
+          pointer-events: all;
+        }
+
+        &:active {
+          transform: scale(0.95);
+        }
+
+        @include hover-supported {
+          cursor: pointer;
+        }
+
+        @include respond-md-max {
+          width: 50px;
+          height: 50px;
+
+          > i {
+            scale: 0.8;
+          }
+        }
+      }
+      .leftArrow {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

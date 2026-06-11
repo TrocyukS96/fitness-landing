@@ -1,0 +1,17 @@
+@use "../../styles/use/mixins" as *;
+@use "../../styles/use/media" as *;
+
+.textarea {
+  height: 120px;
+  border-radius: 12px;
+  background-color: transparent;
+  box-shadow: none;
+  outline: 0;
+  color:var(--color-text);
+  border: 1px solid var(--color-text);
+  padding: 10px 12px;
+  font-size: 24px;
+  resize: vertical;
+  width: 100%;
+  transition: border-color 0.2s;
+}

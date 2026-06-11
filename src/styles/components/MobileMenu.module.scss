@@ -1,0 +1,55 @@
+@use "../use/mixins" as *;
+@use "../use/media" as *;
+
+@layer main {
+  .Container {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--bgColor);
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
+
+  .CloseButton {
+    position: absolute;
+    top: 24px;
+    right: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    touch-action: manipulation;
+    z-index: 10;
+  }
+
+  .Content {
+    position: relative;
+    width: 100%;
+    padding: var(--wrapper-padding);
+    padding-top: 72px;
+  }
+
+  .Links_Item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > button {
+      background-color: transparent;
+      touch-action: manipulation;
+      font-size: 20px;
+    }
+  }
+
+  .ButtonContainer {
+    width: 100%;
+    padding: 0 8px;
+  }
+  .Button {
+    width: 100%;
+  }
+}
