@@ -1,19 +1,17 @@
 // lib/mail/service.ts
 import nodemailer from "nodemailer";
 import { CreateContactDto } from "@/lib/validation/schemas";
-import { env } from "../../../env.mjs";
 
 class MailService {
   private transporter: nodemailer.Transporter;
 
   constructor() {
     this.transporter = nodemailer.createTransport({
-      host: env.EMAIL_HOST,
-      port: env.EMAIL_PORT,
+      service: 'gmail',
       secure: false,
       auth: {
-        user: env.EMAIL_USER,
-        pass: env.EMAIL_PASSWORD,
+        user: process.env.EMAIL_USER || 'user',
+        pass: process.env.EMAIL_PASSWORD || 'password',
       },
       tls: {
         rejectUnauthorized: false,
@@ -23,7 +21,7 @@ class MailService {
 
   async sendContactEmail(createContactDto: CreateContactDto): Promise<void> {
     const { name, message, topic, phone } = createContactDto;
-    const ownerEmail = env.OWNER_EMAIL;
+    const ownerEmail = process.env.OWNER_EMAIL || 'owner@example.com';
     const subject = `New message from the website from ${name}`;
     const date = new Date().toLocaleString("en-US");
 
@@ -76,7 +74,7 @@ class MailService {
     `;
 
     await this.transporter.sendMail({
-      from: `"${env.EMAIL_FROM_NAME}" <${env.EMAIL_FROM}>`,
+      from: `"${process.env.EMAIL_FROM_NAME}" <${process.env.EMAIL_FROM}>`,
       to: ownerEmail,
       subject,
       html: htmlData,

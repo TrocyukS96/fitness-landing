@@ -1,5 +1,4 @@
 import { LRUCache } from 'lru-cache';
-import { env } from '../../env.mjs';
 
 type Options = {
   uniqueTokenPerInterval?: number;
@@ -9,7 +8,7 @@ type Options = {
 export default function rateLimit(options?: Options) {
   const tokenCache = new LRUCache({
     max: options?.uniqueTokenPerInterval || 500,
-    ttl: options?.interval || env.RATE_LIMIT_WINDOW || 60000,
+    ttl: 60000,
   });
 
   return {

@@ -2,10 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import { contactSchema } from '@/lib/validation/schemas';
 import { mailService } from '@/lib/mail/service';
 import rateLimit from '@/lib/rate-limit';
-import { env } from '../../../../env.mjs';
 
 const limiter = rateLimit({
-  interval: env.RATE_LIMIT_WINDOW,
+  interval: 60000,
 });
 
 function getIP(request: NextRequest): string {
@@ -25,7 +24,7 @@ export async function POST(request: NextRequest) {
     console.log(`Rate limiting check for IP: ${ip}`);
     
     try {
-      await limiter.check(env.RATE_LIMIT_MAX, `contact_${ip}`);
+      await limiter.check(10, `contact_${ip}`);
     } catch (error: unknown) {
       const errorMessage = error instanceof Error ? error.message : 'Too many requests. Please try again later.';
       console.log(`Rate limited IP: ${ip}, error:`, errorMessage);
@@ -35,7 +34,7 @@ export async function POST(request: NextRequest) {
           status: 429,
           headers: {
             'Retry-After': '60',
-            'X-RateLimit-Reset': new Date(Date.now() + env.RATE_LIMIT_WINDOW).toISOString(),
+            'X-RateLimit-Reset': new Date(Date.now() + 60000).toISOString(),
           }
         }
       );
