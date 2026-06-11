@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "-": "^0.0.1",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@t3-oss/env-nextjs": "^0.13.10",
